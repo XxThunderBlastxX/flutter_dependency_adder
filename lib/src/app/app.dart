@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:routemaster/routemaster.dart';
 
 import 'router/router.dart';
 import 'theme/theme.dart';
@@ -15,9 +16,9 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.theme,
-        routerDelegate: AppRouter().router.routerDelegate,
-        routeInformationParser: AppRouter().router.routeInformationParser,
-        routeInformationProvider: AppRouter().router.routeInformationProvider,
+        routerDelegate:
+            RoutemasterDelegate(routesBuilder: (context) => AppRouter.router),
+        routeInformationParser: const RoutemasterParser(),
       ),
     );
   }

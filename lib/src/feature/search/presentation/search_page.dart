@@ -1,14 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SearchPage extends ConsumerWidget {
-  const SearchPage({super.key});
+class SearchPage extends ConsumerStatefulWidget {
+  final String query;
+
+  const SearchPage({
+    super.key,
+    required this.query,
+  });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return const Scaffold(
+  ConsumerState createState() => _SearchPageState();
+}
+
+class _SearchPageState extends ConsumerState<SearchPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.query),
+      ),
       body: Center(
-        child: Text('Search Page'),
+        child: Text(
+          widget.query,
+          style: TextStyle(color: Colors.black87),
+        ),
       ),
     );
   }

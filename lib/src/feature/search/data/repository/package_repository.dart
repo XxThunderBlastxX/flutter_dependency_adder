@@ -22,7 +22,8 @@ class PackageRepository extends IPackage {
 
   @override
   Future<Either<List<PackageModel>, Failure>> searchPackage(
-      String query) async {
+    String query,
+  ) async {
     try {
       final searchUrl = '/search?q=$query';
 
