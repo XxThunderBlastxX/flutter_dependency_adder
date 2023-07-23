@@ -2,18 +2,30 @@ import 'package:go_router/go_router.dart';
 
 import '../../feature/home/presentation/home_page.dart';
 
-class AppRouterName {
+class AppRouterPath {
   static const home = '/';
+  static const search = '/search';
+}
+
+class AppRouterName {
+  static const home = 'home';
+  static const search = 'search';
 }
 
 class AppRouter {
   GoRouter get router => _router;
 
   final GoRouter _router = GoRouter(
-    initialLocation: AppRouterName.home,
+    initialLocation: AppRouterPath.home,
     routes: [
       GoRoute(
-        path: AppRouterName.home,
+        name: AppRouterName.home,
+        path: AppRouterPath.home,
+        builder: (context, state) => const HomePage(),
+      ),
+      GoRoute(
+        name: AppRouterName.search,
+        path: AppRouterPath.search,
         builder: (context, state) => const HomePage(),
       ),
     ],
