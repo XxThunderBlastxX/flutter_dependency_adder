@@ -7,11 +7,11 @@ final dioClientProvider = Provider(
       headers: {'Content-Type': 'application/json'},
       responseType: ResponseType.json,
       connectTimeout: const Duration(seconds: 10),
-      baseUrl: ref.read(baseUrlProvider),
+      baseUrl: ref.watch(baseUrlProvider),
     ),
   ),
 );
 
 final baseUrlProvider = Provider(
-  (ref) => 'localhost:3200',
+  (ref) => 'http://localhost:3200',
 );
