@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'router/router.dart';
+import 'theme/theme.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,10 +14,7 @@ class MyApp extends StatelessWidget {
       builder: (context, _) => MaterialApp.router(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+        theme: AppTheme.theme,
         routerDelegate: AppRouter().router.routerDelegate,
         routeInformationParser: AppRouter().router.routeInformationParser,
         routeInformationProvider: AppRouter().router.routeInformationProvider,

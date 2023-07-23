@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dependency_adder/src/app/theme/theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,7 +13,7 @@ class HomePage extends ConsumerWidget {
         children: [
           SizedBox(
             width: double.infinity,
-            height: 0.65.sh,
+            height: 0.45.sh,
             child: Stack(
               alignment: Alignment.topCenter,
               children: [
@@ -39,30 +40,49 @@ class HomePage extends ConsumerWidget {
                   top: 0.08.sh,
                   child: Text(
                     'Flutter Dependency Adder',
-                    style: Theme.of(context).textTheme.headline6!.copyWith(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    style: AppTheme.theme.textTheme.labelLarge!.copyWith(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 0.15.sh,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Github',
+                      style: AppTheme.theme.textTheme.labelSmall!.copyWith(
+                        color: Colors.black87,
+                      ),
+                    ),
                   ),
                 ),
                 Positioned(
                   top: 0.375.sh,
                   child: SizedBox(
-                    width: 0.65.sw,
-                    height: 0.08.sh,
+                    width: 0.55.sw,
+                    height: 0.2.sh,
                     child: TextField(
+                      style: AppTheme.theme.textTheme.labelSmall,
                       decoration: InputDecoration(
                         fillColor: Colors.white,
                         filled: true,
                         hintText: 'Search for a package',
                         contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 18,
-                          vertical: 8,
+                            horizontal: 20, vertical: 20),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12.r),
+                          borderSide: const BorderSide(color: Colors.black87),
                         ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8.r),
-                          borderSide: BorderSide(
-                            color: Colors.black87,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12.r),
+                          borderSide: const BorderSide(color: Colors.black87),
+                        ),
+                        prefixIcon: const Padding(
+                          padding: EdgeInsets.only(left: 12.0, right: 10.0),
+                          child: Icon(
+                            Icons.search,
+                            color: Colors.black54,
                           ),
                         ),
                       ),
@@ -72,6 +92,13 @@ class HomePage extends ConsumerWidget {
               ],
             ),
           ),
+          const Spacer(),
+          Text(
+            'Made with ❤️ by Koustav Mondal',
+            style: AppTheme.theme.textTheme.labelSmall!
+                .copyWith(color: Colors.black87),
+          ),
+          12.verticalSpace,
         ],
       ),
     );
