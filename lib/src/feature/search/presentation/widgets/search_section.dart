@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dependency_adder/src/app/theme/theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:routemaster/routemaster.dart';
 
 import '../../../../app/common/widgets/search_bar.dart';
 import '../../../../app/router/router.dart';
+import '../../../../app/theme/theme.dart';
 
 class SearchSection extends StatelessWidget {
   const SearchSection({super.key});

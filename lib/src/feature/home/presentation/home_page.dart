@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dependency_adder/src/app/utils/launch_url.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:routemaster/routemaster.dart';
@@ -50,18 +52,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                   ),
                 ),
                 Positioned(
-                  top: 89.h,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Github',
-                      style: AppTheme.theme.textTheme.labelSmall!.copyWith(
-                        color: Colors.black87,
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
                   bottom: 0.0,
                   child: Container(
                     decoration: BoxDecoration(
@@ -86,10 +76,39 @@ class _HomePageState extends ConsumerState<HomePage> {
             ),
           ),
           const Spacer(),
-          Text(
-            'Made with ❤️ by Koustav Mondal',
-            style: AppTheme.theme.textTheme.labelSmall!
-                .copyWith(color: Colors.black87),
+          RichText(
+            text: TextSpan(
+              text: 'Made with ❤️ by ',
+              style: AppTheme.theme.textTheme.labelSmall!
+                  .copyWith(color: Colors.black87),
+              children: [
+                TextSpan(
+                  text: 'Koustav Mondal',
+                  style: AppTheme.theme.textTheme.labelSmall!
+                      .copyWith(color: AppTheme.kDarkRed),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () =>
+                        launchWebUrl("https://github.com/XxThunderBlastxX/"),
+                )
+              ],
+            ),
+          ),
+          RichText(
+            text: TextSpan(
+              text: 'Give a ⭐ on ',
+              style: AppTheme.theme.textTheme.labelSmall!
+                  .copyWith(color: Colors.black87),
+              children: [
+                TextSpan(
+                  text: 'Github',
+                  style: AppTheme.theme.textTheme.labelSmall!
+                      .copyWith(color: AppTheme.kDarkRed),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () => launchWebUrl(
+                        "https://github.com/XxThunderBlastxX/flutter_dependency_adder"),
+                )
+              ],
+            ),
           ),
           12.verticalSpace,
         ],

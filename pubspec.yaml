@@ -43,6 +43,7 @@ dependencies:
   json_annotation: ^4.8.1
   dartz: ^0.10.1
   routemaster: ^1.0.1
+  url_launcher: ^6.1.12
 
 dev_dependencies:
   flutter_test:
