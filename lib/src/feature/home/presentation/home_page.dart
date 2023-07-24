@@ -24,23 +24,18 @@ class _HomePageState extends ConsumerState<HomePage> {
         children: [
           SizedBox(
             width: double.infinity,
-            height: 0.45.sh,
+            height: 305.h,
             child: Stack(
               alignment: Alignment.topCenter,
               children: [
                 Container(
                   width: double.infinity,
-                  height: 0.40.sh,
-                  color: const Color(0xFFD90429),
-                ),
-                Container(
-                  width: double.infinity,
-                  height: 0.40.sh,
+                  height: 280.h,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        Colors.transparent,
-                        const Color(0xFF000000).withOpacity(0.65),
+                        Color(0xFFD90429),
+                        Color(0xFF8d0801),
                       ],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
@@ -48,7 +43,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                   ),
                 ),
                 Positioned(
-                  top: 0.08.sh,
+                  top: 50.h,
                   child: Text(
                     'Flutter Dependency Adder',
                     style: AppTheme.theme.textTheme.labelLarge!.copyWith(
@@ -57,7 +52,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                   ),
                 ),
                 Positioned(
-                  top: 0.15.sh,
+                  top: 89.h,
                   child: ElevatedButton(
                     onPressed: () {},
                     child: Text(
@@ -69,13 +64,24 @@ class _HomePageState extends ConsumerState<HomePage> {
                   ),
                 ),
                 Positioned(
-                  top: 0.375.sh,
-                  child: StyledSearchBar(
-                    onFieldSubmitted: (value) => Routemaster.of(context).push(
-                        AppRouterPath.search,
-                        queryParameters: {'q': value.trim()}),
-                    width: 0.55.sw,
-                    height: 0.2.sh,
+                  bottom: 0.0,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.25),
+                          blurRadius: 15,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: StyledSearchBar(
+                      onFieldSubmitted: (value) => Routemaster.of(context).push(
+                          AppRouterPath.search,
+                          queryParameters: {'q': value.trim()}),
+                      width: 170.w,
+                      height: 50.h,
+                    ),
                   ),
                 ),
               ],
