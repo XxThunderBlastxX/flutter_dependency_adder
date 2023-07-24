@@ -1,16 +1,26 @@
-# flutter_dependency_adder
+# 📦 Flutter Dependency Adder
 
-A new Flutter project.
+<center>
+    <img src="./assets/logo/logo.png" alt="logo" width="300"/>
+</center>
 
-## Getting Started
+## 📃 Description
 
-This project is a starting point for a Flutter application.
+It is a platform to select your favorite dependencies and add them to your project with a single
+command.
 
-A few resources to get you started if this is your first Flutter project:
+## 👨‍💻 Tech Stack
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![](https://img.shields.io/badge/made_with-flutter-blue?style=for-the-badge&logo=flutter)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📸 Screenshots
+
+## 🙍‍♂️ Author
+
+- 👦 [ThunderBlast](https://github.com/XxThunderBlastxX)
+
+## 📃 Licence
+
+Copyright © 2023 [ThunderBlast](https://github.com/xXThunderBlastxX).<br />
+This project is [MIT](LICENCE) licensed.
+

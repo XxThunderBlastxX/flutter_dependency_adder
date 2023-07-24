@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       minTextAdapt: true,
       builder: (context, _) => MaterialApp.router(
-        title: 'Flutter Demo',
+        title: 'Flutter Dependency Adder',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.theme,
         routerDelegate:

@@ -52,6 +52,17 @@ class _HomePageState extends ConsumerState<HomePage> {
                   ),
                 ),
                 Positioned(
+                  top: 100.h,
+                  child: Material(
+                    elevation: 12,
+                    type: MaterialType.transparency,
+                    child: Image.asset(
+                      'assets/logo/logo.png',
+                      width: 220,
+                    ),
+                  ),
+                ),
+                Positioned(
                   bottom: 0.0,
                   child: Container(
                     decoration: BoxDecoration(
