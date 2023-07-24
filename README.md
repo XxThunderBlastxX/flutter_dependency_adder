@@ -27,10 +27,11 @@ command.
 
 ## ⚙ How to run the application
 
-1. Clone the repository
+1. Create `.env` and copy the variables from `.env.example` and fill them.
     ```shell
-    git clone github.com/XxThunderBlastxX/flutter_dependency_adder.git
+    cp .env.example .env
     ```
+
 2. Get the flutter packages
     ```shell
     flutter pub get

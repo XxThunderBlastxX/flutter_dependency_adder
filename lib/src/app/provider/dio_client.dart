@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final dioClientProvider = Provider(
@@ -13,5 +14,5 @@ final dioClientProvider = Provider(
 );
 
 final baseUrlProvider = Provider(
-  (ref) => 'http://localhost:3200',
+  (ref) => dotenv.get('BACKEND_HOST'),
 );
