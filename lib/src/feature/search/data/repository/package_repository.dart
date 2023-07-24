@@ -7,6 +7,11 @@ import '../../../../app/provider/dio_client.dart';
 import '../../domain/models/packages/packages.dart';
 import '../interface/package_interface.dart';
 
+final searchPackageProvider =
+    FutureProvider.family<Either<List<PackageModel>, Failure>, String>(
+  (ref, query) => ref.watch(packageRepositoryProvider).searchPackage(query),
+);
+
 final packageRepositoryProvider = Provider<PackageRepository>(
   (ref) => PackageRepository(
     dio: ref.watch(dioClientProvider),

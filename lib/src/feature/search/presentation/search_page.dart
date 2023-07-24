@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app/theme/theme.dart';
+import '../data/repository/package_repository.dart';
+import 'widgets/package_tile.dart';
 import 'widgets/search_section.dart';
 
 class SearchPage extends ConsumerStatefulWidget {
@@ -45,48 +47,62 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                       style: AppTheme.theme.textTheme.labelLarge,
                     ),
                     12.verticalSpace,
-                    SizedBox(
-                      height: 0.73.sh,
-                      child: RawScrollbar(
-                        thumbColor: const Color(0xFF2B2D42),
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(8)),
-                        ),
-                        trackVisibility: true,
-                        controller: _scrollController,
-                        interactive: true,
-                        thumbVisibility: true,
-                        trackColor: const Color(0xFF8D99AE),
-                        trackRadius: const Radius.circular(8),
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: 10,
-                          controller: _scrollController,
-                          itemBuilder: (context, index) => ListTile(
-                            title: Text(
-                              'Dependency $index',
-                              style: AppTheme.theme.textTheme.labelMedium,
-                            ),
-                            subtitle: Text(
-                              'Description $index',
-                              style: AppTheme.theme.textTheme.labelSmall,
-                            ),
-                            trailing: IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.add,
-                                color: Colors.black87,
+                    Consumer(
+                      builder: (context, ref, _) {
+                        final getPackages =
+                            ref.watch(searchPackageProvider(widget.query));
+
+                        return getPackages.when(
+                          data: (data) => data.fold(
+                            (packages) => SizedBox(
+                              height: 0.75.sh,
+                              child: RawScrollbar(
+                                thumbColor: const Color(0xFF2B2D42),
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8)),
+                                ),
+                                trackVisibility: true,
+                                controller: _scrollController,
+                                interactive: true,
+                                thumbVisibility: true,
+                                trackColor: const Color(0xFF8D99AE),
+                                trackRadius: const Radius.circular(8),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: ListView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: packages.length,
+                                    controller: _scrollController,
+                                    itemBuilder: (context, index) =>
+                                        PackageTile(
+                                      title: packages[index].title,
+                                      desc: packages[index].desc,
+                                      version: packages[index].version,
+                                      likes: packages[index].likes.toString(),
+                                      pubPoints:
+                                          packages[index].pubPoints.toString(),
+                                      popularity:
+                                          packages[index].popularity.toString(),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
+                            (err) => Text(err.toString()),
                           ),
-                        ),
-                      ),
-                    )
+                          error: (err, stack) => Text(err.toString()),
+                          loading: () => const Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
               // This acts as a divider between the two sections
-              VerticalDivider(color: Color(0xFF2B2D42), width: 2),
+              const VerticalDivider(color: Color(0xFF2B2D42), width: 2),
               // This shows the command to add the dependency
               Column(),
             ],
