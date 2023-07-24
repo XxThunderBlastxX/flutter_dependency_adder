@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../../app/theme/theme.dart';
+import '../../../../app/utils/styled_snackbar.dart';
 
 class AddDependencyTile extends StatelessWidget {
   final String title;
@@ -33,7 +35,11 @@ class AddDependencyTile extends StatelessWidget {
                 ),
                 IconButton(
                   tooltip: 'Copy to Clipboard',
-                  onPressed: () {}, // TODO: Implement copy to clipboard
+                  onPressed: () =>
+                      Clipboard.setData(ClipboardData(text: command))
+                          .whenComplete(
+                    () => context.styledBanner('Copied to Clipboard'),
+                  ),
                   icon: const Icon(
                     Icons.copy,
                     color: Colors.black87,

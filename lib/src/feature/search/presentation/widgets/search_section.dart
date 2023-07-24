@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dependency_adder/src/app/theme/theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:routemaster/routemaster.dart';
 
@@ -22,8 +23,8 @@ class SearchSection extends StatelessWidget {
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color(0xFFD90429),
-                  Color(0xFF8d0801),
+                  AppTheme.kRed,
+                  AppTheme.kDarkRed,
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,

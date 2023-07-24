@@ -33,7 +33,7 @@ class PackageTile extends ConsumerWidget {
       padding: const EdgeInsets.all(12),
       child: Container(
         decoration: BoxDecoration(
-          color: const Color(0xFF8D99AE),
+          color: AppTheme.kGrey,
           borderRadius: BorderRadius.circular(12.r),
         ),
         padding: const EdgeInsets.all(18.0),

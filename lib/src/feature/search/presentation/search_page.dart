@@ -63,7 +63,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                             (packages) => SizedBox(
                               height: 0.75.sh,
                               child: RawScrollbar(
-                                thumbColor: const Color(0xFF2B2D42),
+                                thumbColor: AppTheme.kBlack,
                                 shape: const RoundedRectangleBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(8)),
@@ -72,7 +72,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                                 controller: _scrollController,
                                 interactive: true,
                                 thumbVisibility: true,
-                                trackColor: const Color(0xFF8D99AE),
+                                trackColor: AppTheme.kGrey,
                                 trackRadius: const Radius.circular(8),
                                 child: Padding(
                                   padding: const EdgeInsets.all(12.0),
