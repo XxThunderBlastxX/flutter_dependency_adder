@@ -1,0 +1,7 @@
+icons_launcher:
+  image_path: "assets/logo/logo.png"
+  platforms:
+    web:
+      enable: true
+      image_path: "assets/logo/logo.png"
+      favicon_path: "assets/logo/logo.png"
