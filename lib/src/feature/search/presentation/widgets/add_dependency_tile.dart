@@ -27,7 +27,9 @@ class AddDependencyTile extends StatelessWidget {
               children: [
                 Text(
                   command,
-                  style: AppTheme.theme.textTheme.labelSmall,
+                  style: AppTheme.theme.textTheme.labelSmall!.copyWith(
+                    fontSize: 15,
+                  ),
                 ),
                 IconButton(
                   tooltip: 'Copy to Clipboard',

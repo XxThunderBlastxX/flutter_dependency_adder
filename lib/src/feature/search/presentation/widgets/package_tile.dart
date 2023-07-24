@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../app/theme/theme.dart';
+import '../../provider/added_package_provider.dart';
 import 'package_meta_data_tile.dart';
 
-class PackageTile extends StatelessWidget {
+class PackageTile extends ConsumerWidget {
   final String title;
   final String desc;
   final String version;
@@ -23,7 +25,10 @@ class PackageTile extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final addedPackage = ref.watch(addedPackageNotifierProvider.notifier);
+    final addedDevPackage = ref.watch(addedDevPackageNotifierProvider.notifier);
+
     return Padding(
       padding: const EdgeInsets.all(12),
       child: Container(
@@ -35,60 +40,69 @@ class PackageTile extends StatelessWidget {
         child: Row(
           children: [
             SizedBox(
-              width: 0.4.sw,
+              width: 0.43.sw,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      Text(
-                        title,
-                        style: AppTheme.theme.textTheme.labelMedium,
-                      ),
-                      3.horizontalSpace,
-                      Text(
-                        version,
-                        style: AppTheme.theme.textTheme.labelSmall!
-                            .copyWith(fontSize: 12.sp),
-                      ),
-                    ],
+                  Text(
+                    title,
+                    style: AppTheme.theme.textTheme.labelMedium,
                   ),
-                  5.verticalSpace,
+                  Text(
+                    version,
+                    style: AppTheme.theme.textTheme.labelSmall!
+                        .copyWith(fontSize: 12.sp),
+                  ),
+                  8.verticalSpace,
                   Text(
                     desc,
                     style: AppTheme.theme.textTheme.labelSmall,
                   ),
-                  16.verticalSpace,
+                  12.verticalSpace,
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      PackageMetadataTile(title: 'Likes', value: likes),
-                      PackageMetadataTile(
-                          title: 'Pub Points', value: pubPoints),
-                      PackageMetadataTile(
-                          title: 'Popularity', value: popularity),
+                      Row(
+                        children: [
+                          PackageMetadataTile(
+                            title: 'Likes',
+                            value: likes,
+                          ),
+                          PackageMetadataTile(
+                            title: 'Pub Points',
+                            value: pubPoints,
+                          ),
+                          PackageMetadataTile(
+                            title: 'Popularity',
+                            value: popularity,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          ElevatedButton(
+                            onPressed: () => addedPackage.addPackage(title),
+                            child: Text(
+                              'Add as Dependency',
+                              style: AppTheme.theme.textTheme.labelSmall,
+                            ),
+                          ),
+                          6.verticalSpace,
+                          ElevatedButton(
+                            onPressed: () => addedDevPackage.addPackage(title),
+                            child: Text(
+                              'Add as Dev Dependency',
+                              style: AppTheme.theme.textTheme.labelSmall,
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ],
               ),
             ),
-            // Meta Data
-
-            const Spacer(),
-            IconButton.outlined(
-              tooltip: 'Add Dependency',
-              onPressed: () {},
-              isSelected: false,
-              color: Colors.red,
-              selectedIcon: Icon(
-                Icons.check,
-                color: Colors.black87,
-              ),
-              icon: Icon(
-                Icons.add,
-                color: Colors.black87,
-              ),
-            )
           ],
         ),
       ),
