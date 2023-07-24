@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dependency_adder/src/feature/search/presentation/widgets/add_dependency_tile.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -34,6 +35,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
           Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // This shows the list of searched dependencies
               SizedBox(
@@ -102,9 +104,22 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                 ),
               ),
               // This acts as a divider between the two sections
-              const VerticalDivider(color: Color(0xFF2B2D42), width: 2),
+              // const VerticalDivider(color: Color(0xFF2B2D42), width: 2),
               // This shows the command to add the dependency
-              Column(),
+              Column(
+                children: [
+                  60.verticalSpace,
+                  const AddDependencyTile(
+                    title: 'Add Dependency',
+                    command: 'command',
+                  ),
+                  22.verticalSpace,
+                  const AddDependencyTile(
+                    title: 'Add Dev Dependency',
+                    command: 'command',
+                  ),
+                ],
+              ),
             ],
           ),
         ],
