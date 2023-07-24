@@ -46,6 +46,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                 width: 1.sw / 2.00,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
                   children: [
                     18.verticalSpace,
                     Text(
@@ -95,9 +96,21 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                                 ),
                               ),
                             ),
-                            (err) => Text(err.toString()),
+                            (err) => Center(
+                              child: Image.asset(
+                                'assets/imgs/nothing.jpg',
+                                width: 0.5.sw,
+                                height: 0.5.sh,
+                              ),
+                            ),
                           ),
-                          error: (err, stack) => Text(err.toString()),
+                          error: (err, stack) => Center(
+                            child: Image.asset(
+                              'assets/imgs/nothing.jpg',
+                              width: 0.5.sw,
+                              height: 0.5.sh,
+                            ),
+                          ),
                           loading: () => const Center(
                             child: CircularProgressIndicator(),
                           ),
