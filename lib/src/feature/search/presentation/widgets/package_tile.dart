@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dependency_adder/src/app/utils/launch_url.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -45,9 +47,26 @@ class PackageTile extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    title,
-                    style: AppTheme.theme.textTheme.labelMedium,
+                  Row(
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          text: title,
+                          style: AppTheme.theme.textTheme.labelMedium!.copyWith(
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.black87,
+                            decorationStyle: TextDecorationStyle.solid,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () =>
+                                launchWebUrl("https://pub.dev/packages/$title"),
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_outward,
+                        color: Colors.black87,
+                      )
+                    ],
                   ),
                   Text(
                     version,
