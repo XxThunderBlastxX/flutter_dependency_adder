@@ -62,7 +62,7 @@ class PackageTile extends ConsumerWidget {
                                 launchWebUrl("https://pub.dev/packages/$title"),
                         ),
                       ),
-                      Icon(
+                      const Icon(
                         Icons.arrow_outward,
                         color: Colors.black87,
                       )
