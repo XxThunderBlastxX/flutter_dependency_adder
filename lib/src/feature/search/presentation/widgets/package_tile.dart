@@ -1,11 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dependency_adder/src/app/utils/launch_url.dart';
-import 'package:flutter_dependency_adder/src/feature/search/presentation/widgets/add_dependency_button.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../app/theme/theme.dart';
+import '../../../../app/utils/launch_url.dart';
+import 'add_dependency_button.dart';
 import 'package_meta_data_tile.dart';
 
 class PackageTile extends ConsumerWidget {
