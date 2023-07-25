@@ -1,11 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dependency_adder/src/app/utils/launch_url.dart';
+import 'package:flutter_dependency_adder/src/feature/search/presentation/widgets/add_dependency_button.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../app/theme/theme.dart';
-import '../../provider/added_package_provider.dart';
 import 'package_meta_data_tile.dart';
 
 class PackageTile extends ConsumerWidget {
@@ -28,9 +28,6 @@ class PackageTile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final addedPackage = ref.watch(addedPackageNotifierProvider.notifier);
-    final addedDevPackage = ref.watch(addedDevPackageNotifierProvider.notifier);
-
     return Padding(
       padding: const EdgeInsets.all(12),
       child: Container(
@@ -41,8 +38,9 @@ class PackageTile extends ConsumerWidget {
         padding: const EdgeInsets.all(18.0),
         child: Row(
           children: [
-            SizedBox(
-              width: 0.43.sw,
+            Container(
+              constraints: BoxConstraints(maxWidth: 0.42.sw, minWidth: 0.0),
+              // width: 0.42.sw,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -98,27 +96,15 @@ class PackageTile extends ConsumerWidget {
                           ),
                         ],
                       ),
-                      Column(
-                        children: [
-                          ElevatedButton(
-                            onPressed: () => addedPackage.addPackage(title),
-                            child: Text(
-                              'Add as Dependency',
-                              style: AppTheme.theme.textTheme.labelSmall,
-                            ),
-                          ),
-                          6.verticalSpace,
-                          ElevatedButton(
-                            onPressed: () => addedDevPackage.addPackage(title),
-                            child: Text(
-                              'Add as Dev Dependency',
-                              style: AppTheme.theme.textTheme.labelSmall,
-                            ),
-                          ),
-                        ],
-                      )
+                      1.sw >= 1200
+                          ? AddDependencyButton(packageName: title)
+                          : const SizedBox(),
                     ],
                   ),
+                  8.verticalSpace,
+                  1.sw <= 1200
+                      ? AddDependencyButton(packageName: title)
+                      : const SizedBox(),
                 ],
               ),
             ),

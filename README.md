@@ -1,5 +1,9 @@
 # 📦 Flutter Dependency Adder
 
+![](https://forthebadge.com/images/badges/built-with-love.svg)
+![](https://img.shields.io/badge/made_with-flutter-blue?style=for-the-badge&logo=flutter)
+![](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
+
 <center>
     <img src="./assets/logo/logo.png" alt="logo" width="300"/>
 </center>

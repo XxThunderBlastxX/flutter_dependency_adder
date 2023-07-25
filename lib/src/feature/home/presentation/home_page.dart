@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dependency_adder/src/app/utils/launch_url.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:routemaster/routemaster.dart';
@@ -8,6 +7,7 @@ import 'package:routemaster/routemaster.dart';
 import '../../../app/common/widgets/search_bar.dart';
 import '../../../app/router/router.dart';
 import '../../../app/theme/theme.dart';
+import '../../../app/utils/launch_url.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});

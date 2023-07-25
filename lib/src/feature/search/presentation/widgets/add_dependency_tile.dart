@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../app/theme/theme.dart';
 import '../../../../app/utils/styled_snackbar.dart';
@@ -27,10 +28,14 @@ class AddDependencyTile extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                Text(
-                  command,
-                  style: AppTheme.theme.textTheme.labelSmall!.copyWith(
-                    fontSize: 15,
+                Container(
+                  constraints:
+                      BoxConstraints(maxWidth: 0.28.sw, minWidth: 0.05.sw),
+                  child: Text(
+                    command,
+                    style: AppTheme.theme.textTheme.labelSmall!.copyWith(
+                      fontSize: 15,
+                    ),
                   ),
                 ),
                 IconButton(
