@@ -31,7 +31,7 @@ command.
 
 ## ⚙ How to run the application
 
-1. Resolve TODO in `pubspec.yaml` and `lib/main.go` file.
+1. Resolve TODO in `lib/main.go` file.
 2. Create `.env` and copy the variables from `.env.example` and fill them.
     ```shell
     cp .env.example .env

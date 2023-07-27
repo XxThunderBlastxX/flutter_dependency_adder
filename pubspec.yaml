@@ -37,5 +37,5 @@ flutter:
   assets:
     - assets/logo/
     - assets/imgs/
-#    - .env TODO : uncomment this line when you have .env file
+    - .env
 
