@@ -6,7 +6,7 @@ import 'package:flutter_web_plugins/url_strategy.dart';
 import 'src/app/app.dart';
 
 void main() async {
-  await dotenv.load(fileName: '.env');
+  await dotenv.load();
   usePathUrlStrategy();
   runApp(
     const ProviderScope(
