@@ -31,14 +31,17 @@ command.
 
 ## ⚙ How to run the application
 
-1. Resolve TODO in `lib/main.go` file.
-2. Create `.env` and copy the variables from `.env.example` and fill them.
+1. Create `.env` and copy the variables from `.env.example` and fill them.
     ```shell
     cp .env.example .env
     ```
-3. Get the flutter packages
+2. Get the flutter packages
     ```shell
     flutter pub get
+    ```
+3. Generate the env files using build runner
+    ```shell
+    dart run build_runner build
     ```
 4. Run the application
     ```shell
