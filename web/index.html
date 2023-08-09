@@ -15,47 +15,86 @@
       the `--base-href` argument provided to `flutter build`.
     -->
     <base href="$FLUTTER_BASE_HREF">
-
+    
     <meta charset="UTF-8">
     <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-    <meta content="A new Flutter project." name="description">
-
+    <meta content="A platform to select your favorite dependencies and add them to your project with a single command."
+          name="description">
+    
     <!-- iOS meta tags & icons -->
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="black" name="apple-mobile-web-app-status-bar-style">
     <meta content="flutter_dependency_adder" name="apple-mobile-web-app-title">
     <link href="icons/Icon-192.png" rel="apple-touch-icon">
-
+    
     <!-- Favicon -->
     <link href="favicon.png" rel="icon" type="image/png"/>
-
+    
     <title>Flutter Dependency Adder</title>
     <link href="manifest.json" rel="manifest">
-
+    
     <script>
     // The value below is injected by flutter build, do not touch.
     var serviceWorkerVersion = null;
 
+    
     </script>
     <!-- This script adds the flutter initialization JS code -->
     <script defer src="flutter.js"></script>
 </head>
 <body>
+<style>
+    body {
+      background-color: #FAFAFA;
+      margin: 0;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .main-content {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s ease-out;
+    }
+
+    .loader {
+      height: 150px;
+      width: 150px;
+    }
+
+
+</style>
 <script>
+  function delay(time){
+    return new Promise(resolve => setTimeout(resolve, time));
+  }
+
     window.addEventListener('load', function(ev) {
+      var loader = document.querySelector('#loader-content'); 
+
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         },
         onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
+          engineInitializer.initializeEngine().then(async function(appRunner) {
+            loader.style.opacity = "0";
+            await delay(400);
             appRunner.runApp();
           });
         }
       });
     });
 
+
 </script>
+
+<div class="main-content" id="loader-content">
+    <img alt="app-loader" class="loader" src="logo.png">
+</div>
 </body>
 </html>
