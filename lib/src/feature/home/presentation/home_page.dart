@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:routemaster/routemaster.dart';
@@ -45,7 +46,10 @@ class _HomePageState extends ConsumerState<HomePage> {
                       end: Alignment.bottomCenter,
                     ),
                   ),
-                ),
+                )
+                    .animate()
+                    .fadeIn(duration: const Duration(milliseconds: 200))
+                    .blurY(end: 0.0),
                 Positioned(
                   top: 50.h,
                   child: Text(
@@ -53,7 +57,10 @@ class _HomePageState extends ConsumerState<HomePage> {
                     style: AppTheme.theme.textTheme.labelLarge!.copyWith(
                       color: Colors.white,
                     ),
-                  ),
+                  )
+                      .animate()
+                      .fadeIn(duration: const Duration(milliseconds: 500))
+                      .moveY(begin: 16, end: 0),
                 ),
                 Positioned(
                   top: 100.h,
@@ -63,7 +70,10 @@ class _HomePageState extends ConsumerState<HomePage> {
                     child: Image.asset(
                       Assets.logo,
                       width: 220,
-                    ),
+                    )
+                        .animate(delay: const Duration(milliseconds: 400))
+                        .fadeIn(duration: const Duration(milliseconds: 500))
+                        .moveY(begin: 16, end: 0),
                   ),
                 ),
                 Positioned(
@@ -85,7 +95,10 @@ class _HomePageState extends ConsumerState<HomePage> {
                       width: 170.w,
                       height: 50.h,
                     ),
-                  ),
+                  )
+                      .animate(delay: const Duration(milliseconds: 250))
+                      .fadeIn(delay: const Duration(milliseconds: 500))
+                      .moveY(begin: 16, end: 0),
                 ),
               ],
             ),
@@ -111,7 +124,9 @@ class _HomePageState extends ConsumerState<HomePage> {
                 ),
               ),
             ],
-          ),
+          ).animate().scaleXY(
+                duration: const Duration(milliseconds: 500),
+              ),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -132,7 +147,9 @@ class _HomePageState extends ConsumerState<HomePage> {
                 ),
               ),
             ],
-          ),
+          ).animate().scaleXY(
+                duration: const Duration(milliseconds: 500),
+              ),
           12.verticalSpace,
         ],
       ),

@@ -22,6 +22,7 @@ dependencies:
   routemaster: ^1.0.1
   url_launcher: ^6.1.12
   envied: ^0.3.0+3
+  flutter_animate: ^4.2.0+1
 
 dev_dependencies:
   flutter_test:
