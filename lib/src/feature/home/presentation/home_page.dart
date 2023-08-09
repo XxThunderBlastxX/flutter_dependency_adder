@@ -7,6 +7,7 @@ import 'package:routemaster/routemaster.dart';
 import '../../../app/common/widgets/search_bar.dart';
 import '../../../app/router/router.dart';
 import '../../../app/theme/theme.dart';
+import '../../../app/utils/assets.dart';
 import '../../../app/utils/launch_url.dart';
 
 class HomePage extends ConsumerStatefulWidget {
@@ -60,7 +61,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     elevation: 12,
                     type: MaterialType.transparency,
                     child: Image.asset(
-                      'assets/logo/logo.png',
+                      Assets.logo,
                       width: 220,
                     ),
                   ),

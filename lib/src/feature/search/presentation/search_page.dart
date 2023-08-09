@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app/theme/theme.dart';
+import '../../../app/utils/assets.dart';
 import '../data/repository/package_repository.dart';
 import '../provider/added_package_provider.dart';
 import 'widgets/add_dependency_tile.dart';
@@ -98,7 +99,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                             ),
                             (err) => Center(
                               child: Image.asset(
-                                'assets/imgs/nothing.jpg',
+                                Assets.emptyPackageList,
                                 width: 0.5.sw,
                                 height: 0.5.sh,
                               ),
@@ -106,7 +107,7 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                           ),
                           error: (err, stack) => Center(
                             child: Image.asset(
-                              'assets/imgs/nothing.jpg',
+                              Assets.emptyPackageList,
                               width: 0.5.sw,
                               height: 0.5.sh,
                             ),
