@@ -15,6 +15,8 @@ class PackageTile extends ConsumerWidget {
   final String likes;
   final String pubPoints;
   final String popularity;
+  final bool isAddedAsDependency;
+  final bool isAddedAsDevDependency;
 
   const PackageTile({
     super.key,
@@ -24,6 +26,8 @@ class PackageTile extends ConsumerWidget {
     required this.likes,
     required this.pubPoints,
     required this.popularity,
+    required this.isAddedAsDependency,
+    required this.isAddedAsDevDependency,
   });
 
   @override
@@ -97,13 +101,21 @@ class PackageTile extends ConsumerWidget {
                         ],
                       ),
                       1.sw >= 1200
-                          ? AddDependencyButton(packageName: title)
+                          ? AddDependencyButton(
+                              packageName: title,
+                              isAddedAsDependency: isAddedAsDependency,
+                              isAddedAsDevDependency: isAddedAsDevDependency,
+                            )
                           : const SizedBox(),
                     ],
                   ),
                   8.verticalSpace,
                   1.sw <= 1200
-                      ? AddDependencyButton(packageName: title)
+                      ? AddDependencyButton(
+                          packageName: title,
+                          isAddedAsDependency: isAddedAsDependency,
+                          isAddedAsDevDependency: isAddedAsDevDependency,
+                        )
                       : const SizedBox(),
                 ],
               ),

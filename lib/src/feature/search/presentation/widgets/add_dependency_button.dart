@@ -7,10 +7,14 @@ import '../../provider/added_package_provider.dart';
 
 class AddDependencyButton extends ConsumerWidget {
   final String packageName;
+  final bool isAddedAsDependency;
+  final bool isAddedAsDevDependency;
 
   const AddDependencyButton({
     super.key,
     required this.packageName,
+    required this.isAddedAsDependency,
+    required this.isAddedAsDevDependency,
   });
 
   @override
@@ -26,12 +30,20 @@ class AddDependencyButton extends ConsumerWidget {
           ),
           width: 1.sw >= 1200 ? 0.15.sw : 0.105.sw,
           child: ElevatedButton(
-            onPressed: () => addedPackage.addPackage(packageName),
-            child: Text(
-              'Add as Dependency',
-              style: AppTheme.theme.textTheme.labelSmall,
-              textAlign: TextAlign.center,
-            ),
+            onPressed: () => isAddedAsDependency
+                ? addedPackage.removePackage(packageName)
+                : addedPackage.addPackage(packageName),
+            child: isAddedAsDependency
+                ? Text(
+                    'Remove Dependency',
+                    style: AppTheme.theme.textTheme.labelSmall,
+                    textAlign: TextAlign.center,
+                  )
+                : Text(
+                    'Add as Dependency',
+                    style: AppTheme.theme.textTheme.labelSmall,
+                    textAlign: TextAlign.center,
+                  ),
           ),
         ),
         6.verticalSpace,
@@ -41,12 +53,20 @@ class AddDependencyButton extends ConsumerWidget {
           ),
           width: 1.sw >= 1200 ? 0.18.sw : 0.115.sw,
           child: ElevatedButton(
-            onPressed: () => addedDevPackage.addPackage(packageName),
-            child: Text(
-              'Add as Dev Dependency',
-              style: AppTheme.theme.textTheme.labelSmall,
-              textAlign: TextAlign.center,
-            ),
+            onPressed: () => isAddedAsDevDependency
+                ? addedDevPackage.removePackage(packageName)
+                : addedDevPackage.addPackage(packageName),
+            child: isAddedAsDevDependency
+                ? Text(
+                    'Remove Dev Dependency',
+                    style: AppTheme.theme.textTheme.labelSmall,
+                    textAlign: TextAlign.center,
+                  )
+                : Text(
+                    'Add as Dev Dependency',
+                    style: AppTheme.theme.textTheme.labelSmall,
+                    textAlign: TextAlign.center,
+                  ),
           ),
         ),
       ],

@@ -92,6 +92,10 @@ class _SearchPageState extends ConsumerState<SearchPage> {
                                           packages[index].pubPoints.toString(),
                                       popularity:
                                           packages[index].popularity.toString(),
+                                      isAddedAsDependency: addedPackage
+                                          .contains(packages[index].title),
+                                      isAddedAsDevDependency: addedDevPackage
+                                          .contains(packages[index].title),
                                     ),
                                   ),
                                 ),
