@@ -14,8 +14,8 @@ class SearchPage extends ConsumerStatefulWidget {
   final String query;
 
   const SearchPage({
-    super.key,
     required this.query,
+    super.key,
   });
 
   @override

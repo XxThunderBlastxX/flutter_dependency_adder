@@ -19,7 +19,6 @@ class PackageTile extends ConsumerWidget {
   final bool isAddedAsDevDependency;
 
   const PackageTile({
-    super.key,
     required this.title,
     required this.desc,
     required this.version,
@@ -28,6 +27,7 @@ class PackageTile extends ConsumerWidget {
     required this.popularity,
     required this.isAddedAsDependency,
     required this.isAddedAsDevDependency,
+    super.key,
   });
 
   @override
@@ -61,7 +61,7 @@ class PackageTile extends ConsumerWidget {
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () =>
-                                launchWebUrl("https://pub.dev/packages/$title"),
+                                launchWebUrl('https://pub.dev/packages/$title'),
                         ),
                       ),
                       const Icon(

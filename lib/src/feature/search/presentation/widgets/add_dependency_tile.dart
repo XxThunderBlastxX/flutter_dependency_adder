@@ -10,9 +10,9 @@ class AddDependencyTile extends StatelessWidget {
   final String command;
 
   const AddDependencyTile({
-    super.key,
     required this.title,
     required this.command,
+    super.key,
   });
 
   @override

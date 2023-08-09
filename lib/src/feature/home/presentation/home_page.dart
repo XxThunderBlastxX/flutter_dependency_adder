@@ -120,7 +120,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                       .copyWith(color: AppTheme.kDarkRed),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () =>
-                        launchWebUrl("https://github.com/XxThunderBlastxX/"),
+                        launchWebUrl('https://github.com/XxThunderBlastxX/'),
                 ),
               ),
             ],
@@ -143,7 +143,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                       .copyWith(color: AppTheme.kDarkRed),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () => launchWebUrl(
-                        "https://github.com/XxThunderBlastxX/flutter_dependency_adder"),
+                        'https://github.com/XxThunderBlastxX/flutter_dependency_adder'),
                 ),
               ),
             ],

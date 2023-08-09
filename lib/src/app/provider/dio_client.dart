@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_dependency_adder/src/app/env/env.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../env/env.dart';
 
 final dioClientProvider = Provider(
   (ref) => Dio(

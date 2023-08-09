@@ -8,9 +8,9 @@ class PackageMetadataTile extends StatelessWidget {
   final String value;
 
   const PackageMetadataTile({
-    super.key,
     required this.title,
     required this.value,
+    super.key,
   });
 
   @override

@@ -14,10 +14,10 @@ class StyledSearchBar extends ConsumerWidget {
   final double height;
 
   const StyledSearchBar({
-    super.key,
     required this.onFieldSubmitted,
     required this.width,
     required this.height,
+    super.key,
   });
 
   @override

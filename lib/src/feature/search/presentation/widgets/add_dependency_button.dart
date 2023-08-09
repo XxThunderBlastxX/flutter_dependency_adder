@@ -11,10 +11,10 @@ class AddDependencyButton extends ConsumerWidget {
   final bool isAddedAsDevDependency;
 
   const AddDependencyButton({
-    super.key,
     required this.packageName,
     required this.isAddedAsDependency,
     required this.isAddedAsDevDependency,
+    super.key,
   });
 
   @override
