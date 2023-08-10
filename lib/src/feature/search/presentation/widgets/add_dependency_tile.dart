@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../app/common/widgets/styled_snackbar.dart';
 import '../../../../app/theme/theme.dart';
-import '../../../../app/utils/styled_snackbar.dart';
 
 class AddDependencyTile extends StatelessWidget {
   final String title;

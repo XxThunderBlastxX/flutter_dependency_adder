@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../theme/theme.dart';
+import '../../theme/theme.dart';
 
 extension StyledBanner on BuildContext {
   void styledBanner(String message) {
