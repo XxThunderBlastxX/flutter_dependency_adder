@@ -10,8 +10,8 @@ void main() {
   group('Testing Env', () {
     debugPrint('🧪 Testing Env');
     test('Testing the environment variables is not empty', () {
-      const String actualBackendHost = Env.backendHost;
-      
+      final String actualBackendHost = Env.backendHost;
+
       expect(actualBackendHost, isNotNull);
       expect(actualBackendHost, isNotEmpty);
       expect(actualBackendHost, isA<String>());

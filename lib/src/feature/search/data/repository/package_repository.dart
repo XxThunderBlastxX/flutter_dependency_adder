@@ -15,15 +15,19 @@ final searchPackageProvider =
 final packageRepositoryProvider = Provider<PackageRepository>(
   (ref) => PackageRepository(
     dio: ref.watch(dioClientProvider),
+    baseUrl: ref.watch(baseUrlProvider),
   ),
 );
 
 class PackageRepository extends IPackage {
   final Dio _dio;
+  final String _baseUrl;
 
   PackageRepository({
     required Dio dio,
-  }) : _dio = dio;
+    required String baseUrl,
+  })  : _dio = dio,
+        _baseUrl = baseUrl;
 
   @override
   Future<Either<List<PackageModel>, Failure>> searchPackage(
@@ -32,7 +36,7 @@ class PackageRepository extends IPackage {
     try {
       final searchUrl = '/search?q=$query';
 
-      final res = await _dio.get(searchUrl);
+      final res = await _dio.get('$_baseUrl$searchUrl');
 
       if (res.statusCode != 200) {
         return Right(Failure('Something went wrong', code: res.statusCode));

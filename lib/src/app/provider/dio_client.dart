@@ -6,10 +6,9 @@ import '../env/env.dart';
 final dioClientProvider = Provider(
   (ref) => Dio(
     BaseOptions(
-      headers: {'Content-Type': 'application/json'},
+      contentType: 'application/json',
       responseType: ResponseType.json,
       connectTimeout: const Duration(seconds: 10),
-      baseUrl: ref.watch(baseUrlProvider),
     ),
   ),
 );
