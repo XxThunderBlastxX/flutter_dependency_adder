@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_dependency_adder/src/app/env/env.dart';
 import 'package:flutter_dependency_adder/src/feature/search/data/repository/package_repository.dart';
 import 'package:flutter_dependency_adder/src/feature/search/domain/models/packages/packages.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -20,7 +21,10 @@ void main() {
     // This is the [mockDio] that will be used to mock the Dio client.
     mockDio = MockDio();
     // This is the [packageRepository] that will be used to test the [searchPackage] method.
-    packageRepository = PackageRepository(dio: mockDio);
+    packageRepository = PackageRepository(
+      dio: mockDio,
+      baseUrl: Env.backendHost,
+    );
 
     // These are the custom query and the path at which the query will be made.
     query = 'bloc';
