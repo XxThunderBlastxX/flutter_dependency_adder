@@ -5,6 +5,10 @@ import '../../../../app/provider/dio_client.dart';
 import '../../domain/models/jokes/jokes.dart';
 import '../interface/jokes_interface.dart';
 
+final getJokesProvider = FutureProvider<JokesModel>(
+  (ref) => ref.watch(jokesRepositoryProvider).getJokes(),
+);
+
 final jokesRepositoryProvider = Provider<JokesRepository>(
   (ref) => JokesRepository(
     dio: ref.watch(dioClientProvider),
