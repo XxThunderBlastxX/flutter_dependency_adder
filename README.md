@@ -50,6 +50,12 @@ command.
 
 > 💡 This flutter project is made to run in web. So it is preferred to run in a browser.
 
+## 📦 How to build the project for web
+
+```shell
+./build.sh
+```
+
 ## 🙍‍♂️ Author
 
 - 👦 [ThunderBlast](https://github.com/XxThunderBlastxX)
